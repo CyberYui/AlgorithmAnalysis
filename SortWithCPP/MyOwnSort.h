@@ -17,6 +17,7 @@
 /*			B.插入排序:	a.简单插入排序
 							void SimpleInsertSort(int array[], int arraySize)
 /*						b.希尔排序(缩小增量排序)
+							void ShellSort(int array[], int arraySize)
 /*			C.选择排序:	a.简单选择排序
 /*						b.堆排序
 /*			D.归并排序:	a.二路归并排序
@@ -28,12 +29,12 @@
 /*			c.基数排序
 /************************************************************************/
 
-void BubbleSort(int array[], int arraySize, bool bBottomToTop);
+void BubbleSort(int array[], int arraySize, bool bBottomToTop);//冒泡排序
 
-void QuickSort(int array[], int start, int last);
+void QuickSort(int array[], int start, int last);//快速排序
 
-void SimpleInsertSort(int array[], int arraySize);
+void SimpleInsertSort(int array[], int arraySize);//简单插入排序
 
-void ShellSort(int array[], int arraySize);
+void ShellSort(int array[], int arraySize);//希尔排序
 
 #endif // MYOWNSORT_H

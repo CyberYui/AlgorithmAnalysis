@@ -139,13 +139,33 @@ void SimpleInsertSort(int array[], int arraySize)
 
 
 /****************************************************************/
-/* FunName()													*/
-/* 功能:														*/
+/* ShellSort(int array[], int arraySize)						*/
+/* 功能:对数组进行希尔排序										*/
 /*																*/
+/* 希尔排序:													*/
+/* 把数组按下标的一定规律分组，对每组使用直接插入排序算法排序,随*/
+/* 着分组的细化，每组包含的元素越来越多，组数变少,当gap减至1时,	*/
+/* 整个文件恰被分成一组，算法随之终止							*/
 /* 																*/
 /* 创建日期:2019-3-18						Author:Cyber Kaka	*/
 /****************************************************************/
 void ShellSort(int array[], int arraySize)
 {
-
+	//gap作为分组的组数
+	for (int gap = arraySize / 2; gap >= 1; gap /= 2)
+	{
+		//对组进行排序
+		for (int i = gap; i < arraySize; i++)
+		{
+			int temp = array[i];
+			int j = i - gap;//j要从离i增量为gap的地方开始
+			//当组内的后数比前数小,就交换位置
+			while (j >= 0 && temp < array[j])
+			{
+				array[j + gap] = array[j];
+				j -= gap;
+			}
+			array[j + gap] = temp;
+		}
+	}
 }
