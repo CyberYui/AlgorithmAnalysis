@@ -11,7 +11,8 @@ int main(void)
 	int *arr = new int[size]{ 5,2,9,3,8,4,0,1,6,7 };
 	//BubbleSort(arr, size, true);
 	//QuickSort(arr, 0, size - 1);
-	SimpleInsertSort(arr, size);
+	//SimpleInsertSort(arr, size);
+	ShellSort(arr, size);
 	for (int i = 0; i < size; i++)
 	{
 		cout << arr[i] << " ";
