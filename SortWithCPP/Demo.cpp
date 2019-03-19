@@ -12,7 +12,9 @@ int main(void)
 	//BubbleSort(arr, size, true);
 	//QuickSort(arr, 0, size - 1);
 	//SimpleInsertSort(arr, size);
-	ShellSort(arr, size);
+	//ShellSort(arr, size);
+	//SlectSort(arr, size);
+	MergeSort(arr, size);
 	for (int i = 0; i < size; i++)
 	{
 		cout << arr[i] << " ";
