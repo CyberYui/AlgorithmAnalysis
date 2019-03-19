@@ -169,3 +169,121 @@ void ShellSort(int array[], int arraySize)
 		}
 	}
 }
+
+
+/****************************************************************/
+/* SlectSort(int array[], int arraySize)						*/
+/* 功能:对数组进行简单插入排序									*/
+/*																*/
+/* 简单插入排序:												*/
+/* 假如希望从小到大升序排序数组,则反复地将一个新元素插入到一个已*/
+/* 排序的子列表中,直至整个列表排序完毕							*/
+/* 																*/
+/* 创建日期:2019-3-19						Author:Cyber Kaka	*/
+/****************************************************************/
+void SlectSort(int array[], int arraySize)
+{
+	//每次将i个数之后的内容定为已排序内容
+	for (int i = arraySize-1; i >=1; i--)
+	{
+		//定义临时变量保存当前的最大值和最大值下标
+		int currentMax = array[0];
+		int currentMaxIndex = 0;
+		//将每一个array[i]之前的数与其比较
+		for (int j = 1; j <= i; j++)
+		{
+			//一旦找到比array[i]大的数,则将其设定为最大数,保存值和下标
+			if (currentMax<array[j])
+			{
+				currentMax = array[j];
+				currentMaxIndex = j;
+			}
+		}
+		//判断最大数是否为array[i],若不是,则将其内容放于最后,即i所在的位置
+		if (currentMaxIndex!=i)
+		{
+			array[currentMaxIndex] = array[i];
+			array[i] = currentMax;
+		}
+	}
+}
+
+
+/****************************************************************/
+/* MergeSort(int array[], int arraySize)						*/
+/* 功能:对一个数组进行二路归并排序								*/
+/*																*/
+/* 二路归并排序:												*/
+/* 将一个数组划分为两半,对每一半递归地调用归并排序,每当两个子列	*/
+/* 表排序完毕,就将它们归并为一个有序的列表,替代之前的父列表,直	*/
+/* 到整个数组都完成归并排序										*/
+/* 																*/
+/* 创建日期:2019-3-19						Author:Cyber Kaka	*/
+/****************************************************************/
+void merge(int array1[], int array1Size, int array2[], int array2Size, int temp[])
+{
+	//传入两个数组及其长度,对两者进行二路归并排序,将排好序的内容存入temp[]中
+
+	int current1 = 0;//array1用于循环的索引
+	int current2 = 0;//array2用于循环的索引
+	int current3 = 0;//用于存放内容的临时数组的索引
+
+	//当对比两个数组的数时,始终把小的存到temp中
+	while (current1 < array1Size&&current2 < array2Size)
+	{
+		if (array1[current1] < array2[current2])
+		{
+			temp[current3++] = array1[current1++];
+		}
+		else
+		{
+			temp[current3++] = array2[current2++];
+		}
+	}
+	//如果只有一个数组时的情况
+	while (current1 < array1Size)
+	{
+		temp[current3++] = array1[current1++];
+	}
+	while (current2 < array2Size)
+	{
+		temp[current3++] = array2[current2++];
+	}
+
+}
+
+void arraycopy(int source[], int sourceStartIndex, int target[], int targetStartIndex, int length)
+{
+	//将传入的source数组复制给targe数组
+	for (int i = 0; i < length; i++)
+	{
+		target[i + targetStartIndex] = source[i + sourceStartIndex];
+	}
+
+}
+
+void MergeSort(int array[], int arraySize)
+{
+	//确保传入的数组中至少超过一个数
+	if (arraySize>1)
+	{
+		//将数组分半,第一半下标为从0到arraySize / 2
+		int *firstHalf = new int[arraySize / 2];
+		arraycopy(array, 0, firstHalf, 0, arraySize / 2);
+		MergeSort(firstHalf, arraySize / 2);//对第一个数组归并排序
+		//第二半下标为从arraySize/2到arraySize-arraySize/2
+		int secondHalfLength = arraySize - arraySize / 2;
+		int *secondHalf = new int[secondHalfLength];
+		arraycopy(array, arraySize / 2, secondHalf, 0, secondHalfLength);
+		MergeSort(secondHalf, secondHalfLength);//对第二个数组归并排序
+		//将排序好的结果放给temp数组
+		int *temp = new int[arraySize];
+		merge(firstHalf, arraySize / 2, secondHalf, secondHalfLength, temp);
+		//将temp数组中的内容复制给array,至此,array数组的二路归并排序完成
+		arraycopy(temp, 0, array, 0, arraySize);
+		delete[]temp;
+		delete[]firstHalf;
+		delete[]secondHalf;
+	}
+
+}
