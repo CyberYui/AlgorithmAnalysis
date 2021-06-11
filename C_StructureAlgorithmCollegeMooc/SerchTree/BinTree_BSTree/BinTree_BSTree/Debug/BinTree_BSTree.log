@@ -1,0 +1,6 @@
+﻿  BSTree.c
+g:\c_structurealgorithmcollegemooc\serchtree\bintree_bstree\bintree_bstree\bstree.c(24): warning C4047: “=”:“BinSearchTree”与“BSTreeNode *”的间接级别不同
+g:\c_structurealgorithmcollegemooc\serchtree\bintree_bstree\bintree_bstree\bstree.c(110): warning C4047: “=”:“BSTreeNode”与“BSTreeNode *”的间接级别不同
+  main.c
+  正在生成代码...
+  BinTree_BSTree.vcxproj -> G:\C_StructureAlgorithmCollegeMooc\SerchTree\BinTree_BSTree\Debug\BinTree_BSTree.exe

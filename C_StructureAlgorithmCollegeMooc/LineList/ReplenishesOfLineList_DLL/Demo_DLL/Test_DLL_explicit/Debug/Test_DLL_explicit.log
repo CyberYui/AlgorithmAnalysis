@@ -1,0 +1,3 @@
+﻿  Test_DLL_explicit.cpp
+g:\c_structurealgorithmcollegemooc\linelist\replenishesoflinelist_dll\demo_dll\test_dll_explicit\test_dll_explicit.cpp(15): error C2664: “HMODULE LoadLibraryW(LPCWSTR)”: 无法将参数 1 从“const char [13]”转换为“LPCWSTR”
+  g:\c_structurealgorithmcollegemooc\linelist\replenishesoflinelist_dll\demo_dll\test_dll_explicit\test_dll_explicit.cpp(15): note: 与指向的类型无关；强制转换要求 reinterpret_cast、C 样式强制转换或函数样式强制转换

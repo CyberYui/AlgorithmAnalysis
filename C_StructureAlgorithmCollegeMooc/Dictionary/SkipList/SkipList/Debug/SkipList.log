@@ -1,0 +1,5 @@
+﻿  main.c
+g:\c_structurealgorithmcollegemooc\dictionary\skiplist\skiplist\main.c(35): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“PNode”
+  SkipList.c
+  正在生成代码...
+  SkipList.vcxproj -> G:\C_StructureAlgorithmCollegeMooc\Dictionary\SkipList\Debug\SkipList.exe
