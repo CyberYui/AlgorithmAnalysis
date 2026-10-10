@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+
+# ===== Visual Studio 构建缓存（2026-10-10 新增）=====
+# 防止再次误提交 VS 构建产物
+.vs/
+**/.vs/
+*.ipch
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+Debug/
+Release/
+x64/
